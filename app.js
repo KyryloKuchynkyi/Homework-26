@@ -12,32 +12,37 @@ function showWeather() {
     .then(data => data.json())
     .then(obj => {
         let desc = document.querySelector(".description");
-        let weather = obj.weather.description;
-        desc.append("src",weather)
+        let weather = obj.weather[0].description;
+        desc.append(weather)
 
         let hum = document.querySelector(".humidity");
         let humidity = obj.main.humidity;
-        hum.append("src",humidity)
+        hum.append(humidity)
 
-        
-    })
-    .then(obj => {
         let pres = document.querySelector(".pressure");
         let pressure = obj.main.pressure;
-        pres.setAttribute("src",pressure)
-        document.body.append(pres)
-    })
-    .then(obj => {
+        pres.append(pressure)
+
         let ic = document.querySelector(".icon");
-        let icon = obj.weather.icon;
-        ic.setAttribute("src",icon)
-        document.body.append("src",ic)
-    })
-    .then(obj => {
+        let icon = obj.weather[0].icon;
+        let url = ("http://openweathermap.org/img/w/" + icon + ".png")
+        let img = document.querySelector(".imeg");
+        img.setAttribute("src",url)
+        
         let tem = document.querySelector(".temp");
         let temp = obj.main.temp;
-        tem.setAttribute("src",)
+        tem.append(temp)
+
+        let spe = document.querySelector(".speed");
+        let speed = obj.wind.speed;
+        spe.append(speed + "км/год")
+
+        let de = document.querySelector(".deg");
+        let deg = obj.wind.deg;
+        de.append(deg)
     })
 }
 
-console.log(showWeather)
+document.querySelector(".butt").addEventListener("click",showWeather)
+
+

@@ -22,9 +22,34 @@ body {
 .boxes div {
     border: 1px solid black;
     background-color: white;
-    width: 250px;
-    height: 100px;
+    width: 350px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.butt {
+    width: 200px;
+    height: 60px;
+}
+
+.boxes div {
+    font-size: 40px;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imeg {
+    width: 150px;
+    height: 150px;
+    border: none;
+} 
 
 
 /* Когда добавлю инфу в div нужно будет убрать width and height , и убрать background woth border ) */
